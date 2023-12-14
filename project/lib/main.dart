@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:todoflutter/signup_screen.dart';
+import 'package:todoflutter/screens/login_screen.dart';
+import 'package:todoflutter/screens/signup_screen.dart';
+import 'package:todoflutter/screens/welcome.dart';
 import 'pages/home_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -36,8 +38,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignUpScreen(),
-      // theme: ThemeData(primarySwatch: Colors.yellow),
+      // home: SignUpScreen(),
+   initialRoute: '/login',
+      routes: {
+        '/login': (context) => LoginScreen(),
+        '/signup': (context) => SignUpScreen(),
+        '/home': (context) => HomePage(),
+      },
+       theme: ThemeData(primarySwatch: Colors.yellow),
     );
   }
 }
