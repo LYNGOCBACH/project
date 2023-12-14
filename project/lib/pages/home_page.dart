@@ -77,7 +77,14 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.yellow[200],
       appBar: AppBar(
-        title: Text('TO DO'),
+       title: Center(child: Text('TO DO')),
+      leading: IconButton(
+        icon: Icon(Icons.menu), // Three-line icon
+        onPressed: () {
+          // Open the drawer
+          Scaffold.of(context).openDrawer();
+        },
+      ),
         elevation: 0,
       ),
       floatingActionButton: FloatingActionButton(
