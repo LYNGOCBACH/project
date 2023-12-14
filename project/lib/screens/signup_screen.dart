@@ -15,6 +15,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController _passController = TextEditingController();
   String _email = "";
   String _password = "";
+  void _hanleSignUp() async{
+    try{
+      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+        email: _email, password: _password);
+        print("User Registered: ${userCredential.user!.email}");
+    }catch (e){
+      print('Error: $e');
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +35,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
           padding: EdgeInsets.all(16),
           child: Form(
             key: _formKey,
-            child: Column(children: [
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
               TextFormField(
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
@@ -46,9 +57,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   });
                 },
               ),
+              SizedBox(height: 20,),
               TextFormField(
-                controller: _emailController,
-                keyboardType: TextInputType.emailAddress,
+                controller: _passController,
+                obscureText: true,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: "PassWord",
@@ -61,10 +73,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 },
                 onChanged: (value) {
                   setState(() {
-                    _email = value;
+                    _password = value;
                   });
                 },
               ),
+              SizedBox(height: 20),
+              ElevatedButton(onPressed: (){
+                if(_formKey.currentState!.validate()){
+                  _hanleSignUp();
+                }
+              }, child: Text('Sign Up')),
             ]),
           ),
         ),
