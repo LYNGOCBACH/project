@@ -46,6 +46,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   });
                 },
               ),
+              TextFormField(
+                controller: _emailController,
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: "PassWord",
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Please Enter You PassWord";
+                  }
+                  return null;
+                },
+                onChanged: (value) {
+                  setState(() {
+                    _email = value;
+                  });
+                },
+              ),
             ]),
           ),
         ),
