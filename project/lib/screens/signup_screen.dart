@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:todoflutter/pages/home_page.dart';
  
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -15,12 +16,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController _passController = TextEditingController();
   String _email = "";
   String _password = "";
-  void _hanleSignUp() async{
-    try{
-      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
-        email: _email, password: _password);
-        print("User Registered: ${userCredential.user!.email}");
-    }catch (e){
+   void _handleSignUp() async {
+    try {
+      await _auth.createUserWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passController.text,
+      );
+
+      // Đăng ký thành công, chuyển hướng đến trang HomePage và loại bỏ màn hình đăng ký
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
+    } catch (e) {
       print('Error: $e');
     }
   }
@@ -80,7 +88,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(height: 20),
               ElevatedButton(onPressed: (){
                 if(_formKey.currentState!.validate()){
-                  _hanleSignUp();
+                  _handleSignUp();
                 }
               }, child: Text('Sign Up')),
             ]),

@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:todoflutter/pages/home_page.dart'; // Import your home page
+import 'package:todoflutter/pages/home_page.dart'; 
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -17,21 +17,17 @@ class _LoginScreenState extends State<LoginScreen> {
   String _email = "";
   String _password = "";
 
-  void _handleLogin() async {
+ void _handleLogin() async {
     try {
-      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-        email: _email,
-        password: _password,
+      await _auth.signInWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passController.text,
       );
 
-      print("User Logged In: ${userCredential.user!.email}");
-
-      // Navigate to the home page after successful login
+      // Đăng nhập thành công, chuyển hướng đến trang HomePage và loại bỏ màn hình đăng nhập
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(
-          builder: (context) => HomePage(),
-        ),
+        MaterialPageRoute(builder: (context) => HomePage()),
       );
     } catch (e) {
       print('Error: $e');

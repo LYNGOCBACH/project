@@ -14,11 +14,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   // reference the hive box
   final _myBox = Hive.box('mybox');
-  ToDoDataBase db = ToDoDataBase();
+  final ToDoDataBase db = ToDoDataBase();
 
   @override
   void initState() {
-    // if this is the 1st time ever openin the app, then create default data
+    
     if (_myBox.get("TODOLIST") == null) {
       db.createInitialData();
     } else {
@@ -79,9 +79,9 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
        title: Center(child: Text('TO DO')),
       leading: IconButton(
-        icon: Icon(Icons.menu), // Three-line icon
+        icon: Icon(Icons.menu), 
         onPressed: () {
-          // Open the drawer
+          
           Scaffold.of(context).openDrawer();
         },
       ),
