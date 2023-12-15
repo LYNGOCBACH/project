@@ -38,12 +38,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: SignUpScreen(),
+       home: SignUpScreen(),
    initialRoute: '/login',
       routes: {
         '/login': (context) => LoginScreen(),
         '/signup': (context) => SignUpScreen(),
-        '/home': (context) => HomePage(),
+        '/home': (context) =>  HomePage(),
       },
        theme: ThemeData(primarySwatch: Colors.yellow),
     );

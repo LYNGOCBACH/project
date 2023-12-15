@@ -1,13 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
- 
+import 'package:todoflutter/pages/home_page.dart'; // Import your home page
+
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
- 
+  const LoginScreen({Key? key}) : super(key: key);
+
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
- 
+
 class _LoginScreenState extends State<LoginScreen> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -15,15 +16,28 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController _passController = TextEditingController();
   String _email = "";
   String _password = "";
-  void _hanleLogin() async{
-    try{
+
+  void _handleLogin() async {
+    try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-        email: _email, password: _password);
-        print("User Logged In: ${userCredential.user!.email}");
-    }catch (e){
+        email: _email,
+        password: _password,
+      );
+
+      print("User Logged In: ${userCredential.user!.email}");
+
+      // Navigate to the home page after successful login
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomePage(),
+        ),
+      );
+    } catch (e) {
       print('Error: $e');
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,52 +52,56 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-              TextFormField(
-                controller: _emailController,
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: "Email",
+                TextFormField(
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Email",
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Please Enter Your Email";
+                    }
+                    return null;
+                  },
+                  onChanged: (value) {
+                    setState(() {
+                      _email = value;
+                    });
+                  },
                 ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please Enter You Email";
-                  }
-                  return null;
-                },
-                onChanged: (value) {
-                  setState(() {
-                    _email = value;
-                  });
-                },
-              ),
-              SizedBox(height: 20,),
-              TextFormField(
-                controller: _passController,
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: "PassWord",
+                SizedBox(height: 20,),
+                TextFormField(
+                  controller: _passController,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Password",
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Please Enter Your Password";
+                    }
+                    return null;
+                  },
+                  onChanged: (value) {
+                    setState(() {
+                      _password = value;
+                    });
+                  },
                 ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please Enter You PassWord";
-                  }
-                  return null;
-                },
-                onChanged: (value) {
-                  setState(() {
-                    _password = value;
-                  });
-                },
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(onPressed: (){
-                if(_formKey.currentState!.validate()){
-                  _hanleLogin();
-                }
-              }, child: Text('Login')),
-            ]),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      _handleLogin();
+                    }
+                  },
+                  child: Text('Login'),
+                ),
+              ],
+            ),
           ),
         ),
       ),
