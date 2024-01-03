@@ -30,31 +30,31 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Welcome(),
-      initialRoute: '/login',
+      home: const Welcome(),
+      initialRoute: 'welcome',
 routes: {
   '/login': (context) => LoginScreen(),
   '/signup': (context) => SignUpScreen(),
+  // '/homepage': ((context) => HomePage()),
   '/welcome': (context) => Welcome(),
-  '/home': (context) => Home(),
+  // '/home': (context) => Home(),
 },
       theme: ThemeData(primarySwatch: Colors.yellow),
     );
   }
 }
+// class Home extends StatelessWidget {
+//   const Home({Key? key}) : super(key: key);
 
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-      ),
-      body: Center(
-        child: Text('Welcome to the Home screen!'),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Home'),
+//       ),
+//       body: Center(
+//         child: Text('Welcome to the Home screen!'),
+//       ),
+//     );
+//   }
+// }

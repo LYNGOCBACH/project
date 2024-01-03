@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:todoflutter/util/todo_database_service.dart';
 
 class ToDoTile extends StatelessWidget {
-  final String taskName;
-  final bool taskCompleted;
+  final String id;
+  final String? taskName;
+  final bool? taskCompleted;
   Function(bool?)? onChanged;
   Function(BuildContext)? deleteFunction;
 
   ToDoTile({
     super.key,
+    required this.id,
     required this.taskName,
     required this.taskCompleted,
     required this.onChanged,
@@ -24,7 +27,9 @@ class ToDoTile extends StatelessWidget {
           motion: StretchMotion(),
           children: [
             SlidableAction(
-              onPressed: deleteFunction,
+              onPressed: (deleteFunction) async{
+                await ToDoDatabaseService().deleteTodo(id);
+              },
               icon: Icons.delete,
               backgroundColor: Colors.red.shade300,
               borderRadius: BorderRadius.circular(12),
@@ -42,15 +47,18 @@ class ToDoTile extends StatelessWidget {
               // checkbox
               Checkbox(
                 value: taskCompleted,
-                onChanged: onChanged,
+                onChanged: (onChanged){
+                  bool? newCompleteTask = onChanged;
+                  ToDoDatabaseService().updateTask(id, newCompleteTask!);
+                },
                 activeColor: Colors.black,
               ),
 
               // task name
               Text(
-                taskName,
+                taskName??'',
                 style: TextStyle(
-                  decoration: taskCompleted
+                decoration: taskCompleted!
                       ? TextDecoration.lineThrough
                       : TextDecoration.none,
                 ),

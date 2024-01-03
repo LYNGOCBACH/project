@@ -1,4 +1,4 @@
-// screens/welcome.dart
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'login_screen.dart';
@@ -40,7 +40,7 @@ class _WelcomeState extends State<Welcome> {
               onPressed: () {
                 Navigator.pushNamed(context, '/signup');
               },
-                child: Text('Signout'),
+                child: Text('Signup'),
               ),
             ],
           ),
