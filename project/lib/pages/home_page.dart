@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:todoflutter/screens/welcome.dart';
+import 'package:todoflutter/util/edit_task_screen.dart';
 import 'package:todoflutter/util/todo_database_service.dart';
 import '../data/database.dart';
 import '../util/dialog_box.dart';
@@ -57,6 +58,7 @@ class _HomePageState extends State<HomePage> {
         db.toDoList = data;
       });
     });
+
   }
 
 
@@ -78,6 +80,17 @@ class _HomePageState extends State<HomePage> {
   void deleteTask(int index) {
     // Delete Cloud Firestore
     db2.deleteTodo(db.toDoList[index].id);
+  }
+    void editTask(int index) {
+    // Open the EditTaskScreen
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => EditTaskScreen(
+          id: db.toDoList[index].id,
+          taskName: db.toDoList[index].taskName,
+        ),
+      ),
+    );
   }
 
   @override
@@ -121,7 +134,7 @@ class _HomePageState extends State<HomePage> {
                                   await _firebaseAuth.signOut();
                                   Navigator.pushNamedAndRemoveUntil(
                                     context,
-                                    '/welcome', // You may change this to the initial route of your app
+                                    '/welcome', 
                                     (Route<dynamic> route) => false,
                                   );
                                 },
@@ -174,6 +187,7 @@ class _HomePageState extends State<HomePage> {
                 taskName: todoList[index].taskName,
                 taskCompleted: todoList[index].taskCompleted,
                 id: todoList[index].id,
+                editFunction: (context) => editTask(index),
                 onChanged: (value) =>
                     checkBoxChanged(value!, todoList[index].id as int),
                 deleteFunction: (context) =>

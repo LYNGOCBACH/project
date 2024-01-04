@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:todoflutter/util/edit_task_screen.dart';
 import 'package:todoflutter/util/todo_database_service.dart';
 
 class ToDoTile extends StatelessWidget {
@@ -8,6 +9,7 @@ class ToDoTile extends StatelessWidget {
   final bool? taskCompleted;
   Function(bool?)? onChanged;
   Function(BuildContext)? deleteFunction;
+  
 
   ToDoTile({
     super.key,
@@ -15,7 +17,7 @@ class ToDoTile extends StatelessWidget {
     required this.taskName,
     required this.taskCompleted,
     required this.onChanged,
-    required this.deleteFunction,
+    required this.deleteFunction, required void Function(dynamic context) editFunction,
   });
 
   @override
@@ -27,7 +29,7 @@ class ToDoTile extends StatelessWidget {
           motion: StretchMotion(),
           children: [
             SlidableAction(
-              onPressed: (deleteFunction) async{
+              onPressed: (deleteFunction) async {
                 await ToDoDatabaseService().deleteTodo(id);
               },
               icon: Icons.delete,
@@ -47,7 +49,7 @@ class ToDoTile extends StatelessWidget {
               // checkbox
               Checkbox(
                 value: taskCompleted,
-                onChanged: (onChanged){
+                onChanged: (onChanged) {
                   bool? newCompleteTask = onChanged;
                   ToDoDatabaseService().updateTask(id, newCompleteTask!);
                 },
@@ -56,11 +58,27 @@ class ToDoTile extends StatelessWidget {
 
               // task name
               Text(
-                taskName??'',
+                taskName ?? '',
                 style: TextStyle(
-                decoration: taskCompleted!
+                  decoration: taskCompleted!
                       ? TextDecoration.lineThrough
                       : TextDecoration.none,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => EditTaskScreen(
+                        id: id,
+                        taskName: taskName,
+                      ),
+                    ),
+                  );
+                },
+                child: Icon(
+                  Icons.edit,
+                  color: Colors.black,
                 ),
               ),
             ],

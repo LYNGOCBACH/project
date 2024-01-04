@@ -23,6 +23,12 @@ class ToDoDatabaseService {
     });
   }
 
+  Future<void> updateEditTask(String id, String newTaskName) async {
+    await toDoCollection.doc(id).update({
+      'taskName': newTaskName,
+    });
+  }
+
   Future<void> deleteTodo(String id) async {
     await toDoCollection.doc(id).delete();
   }
