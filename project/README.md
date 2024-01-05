@@ -1,4 +1,4 @@
-                                                                              # TO DO APP ❤️ Made with Flutter
+#                                      TO DO APP ❤️ Made with Flutter
 
 # Giới thiệu:
 ToDoFlutter là một ứng dụng danh sách việc cần làm đơn giản được xây dựng bằng Flutter và Firebase. Nó cho phép người dùng tạo, chỉnh sửa, xóa các tác vụ và đánh dấu chúng là đã hoàn thành. Ứng dụng sử dụng Firebase để xác thực và lưu trữ đám mây.
@@ -64,10 +64,10 @@ Các Widget Tiện Ích:
 - Tạo my_button.dart là một widget nút được sử dụng trong các hộp thoại.
 - Tạo todo_tile.dart là một widget hiển thị một công việc trong danh sách.
 2. Lưu Trữ Dữ Liệu
-Sử Dụng Hive:
+#Sử Dụng Hive:
 - Tích hợp hive và hive_flutter để lưu trữ danh sách công việc cục bộ.
 - Tạo lớp ToDoDataBase để quản lý các phương thức thêm, sửa, xóa và lấy danh sách công việc từ Hive.
-Sử Dụng Firebase:
+#Sử Dụng Firebase:
 - Sử dụng Firebase Core để khởi tạo Firebase trong ứng dụng.
 - Sử dụng Cloud Firestore để lưu trữ và đồng bộ dữ liệu công việc trên đám mây.
 - Xác định các phương thức để đồng bộ dữ liệu giữa Hive và Cloud Firestore.
