@@ -47,7 +47,7 @@ Trước khi bắt đầu, hãy đảm bảo bạn đã cài đặt các phần 
 - Xóa Công Việc: Cho phép người dùng xóa công việc và đồng bộ ngay lập tức với Cloud Firestore.
 
 # Chi tiết các bước:
-* Tạo Giao Diện Người Dùng (UI)
+1. Tạo Giao Diện Người Dùng (UI)
 Màn Hình Đăng Nhập và Đăng Ký:
 - Tạo các trang login_screen.dart và signup_screen.dart.
 - Sử dụng TextFormField để nhập email và mật khẩu.
@@ -63,7 +63,7 @@ Các Widget Tiện Ích:
 - Tạo dialog_box.dart để hiển thị hộp thoại cho việc thêm công việc mới.
 - Tạo my_button.dart là một widget nút được sử dụng trong các hộp thoại.
 - Tạo todo_tile.dart là một widget hiển thị một công việc trong danh sách.
-* Lưu Trữ Dữ Liệu
+2. Lưu Trữ Dữ Liệu
 Sử Dụng Hive:
 - Tích hợp hive và hive_flutter để lưu trữ danh sách công việc cục bộ.
 - Tạo lớp ToDoDataBase để quản lý các phương thức thêm, sửa, xóa và lấy danh sách công việc từ Hive.
@@ -71,11 +71,11 @@ Sử Dụng Firebase:
 - Sử dụng Firebase Core để khởi tạo Firebase trong ứng dụng.
 - Sử dụng Cloud Firestore để lưu trữ và đồng bộ dữ liệu công việc trên đám mây.
 - Xác định các phương thức để đồng bộ dữ liệu giữa Hive và Cloud Firestore.
-* Xử Lý Logic Ứng Dụng:
+3. Xử Lý Logic Ứng Dụng:
 - Tạo lớp ToDoTask để biểu diễn một công việc.
 - Tích hợp logic xử lý công việc như thêm, sửa và xóa trong ToDoDataBase.
 - Sử dụng StreamController để theo dõi thay đổi trong danh sách công việc và thông báo cho StreamBuilder cập nhật giao diện.
-* Xử Lý Xác Thực Người Dùng
+4. Xử Lý Xác Thực Người Dùng
 - Sử dụng Firebase Auth để xác thực người dùng.
 - Tạo các phương thức đăng nhập, đăng ký và đăng xuất.
 - Hiển thị các màn hình tương ứng dựa trên trạng thái xác thực.
