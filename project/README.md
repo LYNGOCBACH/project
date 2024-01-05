@@ -46,6 +46,40 @@ Trước khi bắt đầu, hãy đảm bảo bạn đã cài đặt các phần 
 - Sửa Tên Công Việc: Cho phép người dùng sửa tên công việc và đồng bộ ngay lập tức với Cloud Firestore.
 - Xóa Công Việc: Cho phép người dùng xóa công việc và đồng bộ ngay lập tức với Cloud Firestore.
 
+# Chi tiết các bước:
+* Tạo Giao Diện Người Dùng (UI)
+Màn Hình Đăng Nhập và Đăng Ký:
+- Tạo các trang login_screen.dart và signup_screen.dart.
+- Sử dụng TextFormField để nhập email và mật khẩu.
+- Sử dụng Firebase Auth để xác thực người dùng khi họ đăng nhập hoặc đăng ký.
+Màn Hình Chính:
+- Tạo home_page.dart để hiển thị danh sách công việc và các chức năng quản lý.
+- Sử dụng StreamBuilder để theo dõi thay đổi trong danh sách công việc và cập nhật giao diện tự động.
+- Sử dụng flutter_slidable để thêm hiệu ứng vuốt cho việc xóa công việc.
+Màn Hình Sửa Công Việc:
+- Tạo edit_task_screen.dart để cho phép người dùng sửa tên công việc.
+- Sử dụng TextField để nhập tên mới và cập nhật dữ liệu ngay lập tức.
+Các Widget Tiện Ích:
+- Tạo dialog_box.dart để hiển thị hộp thoại cho việc thêm công việc mới.
+- Tạo my_button.dart là một widget nút được sử dụng trong các hộp thoại.
+- Tạo todo_tile.dart là một widget hiển thị một công việc trong danh sách.
+* Lưu Trữ Dữ Liệu
+Sử Dụng Hive:
+- Tích hợp hive và hive_flutter để lưu trữ danh sách công việc cục bộ.
+- Tạo lớp ToDoDataBase để quản lý các phương thức thêm, sửa, xóa và lấy danh sách công việc từ Hive.
+Sử Dụng Firebase:
+- Sử dụng Firebase Core để khởi tạo Firebase trong ứng dụng.
+- Sử dụng Cloud Firestore để lưu trữ và đồng bộ dữ liệu công việc trên đám mây.
+- Xác định các phương thức để đồng bộ dữ liệu giữa Hive và Cloud Firestore.
+* Xử Lý Logic Ứng Dụng:
+- Tạo lớp ToDoTask để biểu diễn một công việc.
+- Tích hợp logic xử lý công việc như thêm, sửa và xóa trong ToDoDataBase.
+- Sử dụng StreamController để theo dõi thay đổi trong danh sách công việc và thông báo cho StreamBuilder cập nhật giao diện.
+* Xử Lý Xác Thực Người Dùng
+- Sử dụng Firebase Auth để xác thực người dùng.
+- Tạo các phương thức đăng nhập, đăng ký và đăng xuất.
+- Hiển thị các màn hình tương ứng dựa trên trạng thái xác thực.
+
 # Người khác có thể mở rộng:
 - Thêm Ưu Đãi Khác: Mở rộng ứng dụng bằng cách thêm các tính năng như ưu đãi, hạn chế thời gian, hoặc độ ưu tiên công việc.
 - Nhóm Công Việc: Cho phép người dùng nhóm công việc theo danh mục hoặc ưu tiên.
