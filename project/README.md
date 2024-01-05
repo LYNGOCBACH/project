@@ -52,21 +52,27 @@ Trước khi bắt đầu, hãy đảm bảo bạn đã cài đặt các phần 
 - Tạo các trang login_screen.dart và signup_screen.dart.
 - Sử dụng TextFormField để nhập email và mật khẩu.
 - Sử dụng Firebase Auth để xác thực người dùng khi họ đăng nhập hoặc đăng ký.
+
 1.2 Màn Hình Chính:
 - Tạo home_page.dart để hiển thị danh sách công việc và các chức năng quản lý.
 - Sử dụng StreamBuilder để theo dõi thay đổi trong danh sách công việc và cập nhật giao diện tự động.
 - Sử dụng flutter_slidable để thêm hiệu ứng vuốt cho việc xóa công việc.
+
 1.3 Màn Hình Sửa Công Việc:
 - Tạo edit_task_screen.dart để cho phép người dùng sửa tên công việc.
 - Sử dụng TextField để nhập tên mới và cập nhật dữ liệu ngay lập tức.
+
 1.4 Các Widget Tiện Ích:
 - Tạo dialog_box.dart để hiển thị hộp thoại cho việc thêm công việc mới.
 - Tạo my_button.dart là một widget nút được sử dụng trong các hộp thoại.
 - Tạo todo_tile.dart là một widget hiển thị một công việc trong danh sách.
+
 2. Lưu Trữ Dữ Liệu
+  
 2.1 Sử Dụng Hive:
 - Tích hợp hive và hive_flutter để lưu trữ danh sách công việc cục bộ.
 - Tạo lớp ToDoDataBase để quản lý các phương thức thêm, sửa, xóa và lấy danh sách công việc từ Hive.
+
 2.2 Sử Dụng Firebase:
 - Sử dụng Firebase Core để khởi tạo Firebase trong ứng dụng.
 - Sử dụng Cloud Firestore để lưu trữ và đồng bộ dữ liệu công việc trên đám mây.
