@@ -105,16 +105,20 @@ B4: Run chạy code trên web
 4. Đánh dấu các nhiệm vụ đã hoàn thành bằng cách chuyển đổi hộp kiểm.
 5. Đăng xuất bằng cách sử dụng tùy chọn menu.
 
-
+# Hình ảnh ứng dung:
+- Màn hình chào mừng:
 ![image](https://github.com/LYNGOCBACH/project/assets/125987097/29592b80-97c1-4f24-a75d-64f920a49b89)
+- Màn hình đăng nhập:
 ![image](https://github.com/LYNGOCBACH/project/assets/125987097/dd0dd4cf-06cb-498d-9c07-4e0d13363538)
+- Màn hình đăng ký: 
 ![image](https://github.com/LYNGOCBACH/project/assets/125987097/414104a4-cc61-4244-82ec-9f0c6463b3fe)
-
+- Màn hình home_page hiển thị danh sách công việc và các chức năng quản lý:
 ![image](https://github.com/LYNGOCBACH/project/assets/125987097/760156db-f1d0-4e56-9071-ef31ce575166)
+- Màn hình home_page hiển thị chức năng xóa:
 ![image](https://github.com/LYNGOCBACH/project/assets/125987097/bd8cf3f2-b818-43b9-ac67-e61bd7e65bdd)
-
+- Màn hình firebase Authentication:
 ![image](https://github.com/LYNGOCBACH/project/assets/125987097/5dbe135a-cd9b-4910-9f6d-f4ae33a67412)
-
+- Màn hình firebase Cloud Firestore:
 ![image](https://github.com/LYNGOCBACH/project/assets/125987097/b292b3bf-981a-4aae-8d51-a02f39f1db03)
 
 
