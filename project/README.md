@@ -6,7 +6,7 @@ Cách đăng nhập vào APP: SignUp -> Login.
 ![image](https://github.com/LYNGOCBACH/project/assets/125987097/dd0dd4cf-06cb-498d-9c07-4e0d13363538)
 ![image](https://github.com/LYNGOCBACH/project/assets/125987097/414104a4-cc61-4244-82ec-9f0c6463b3fe)
 
-![image](https://github.com/LYNGOCBACH/project/assets/125987097/f85e53e1-c6b6-45a6-8f98-9524c9ba4cb5)
+![image](https://github.com/LYNGOCBACH/project/assets/125987097/760156db-f1d0-4e56-9071-ef31ce575166)
 
 ![image](https://github.com/LYNGOCBACH/project/assets/125987097/5dbe135a-cd9b-4910-9f6d-f4ae33a67412)
 
