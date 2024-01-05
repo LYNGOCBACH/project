@@ -9,6 +9,26 @@ Trước khi bắt đầu, hãy đảm bảo bạn đã cài đặt các phần 
 - Flutter
 - Firebase
 
+# Cấu trúc thư mục: 
+- lib: Chứa mã nguồn của ứng dụng.
+- data: Chứa các lớp và logic liên quan đến dữ liệu.
+- database.dart: Lớp ToDoDataBase quản lý danh sách công việc và cung cấp các phương thức để thao tác dữ liệu.
+- todo_task.dart: Định nghĩa lớp ToDoTask để biểu diễn một công việc.
+- screens: Chứa các màn hình của ứng dụng.
+- login_screen.dart: Màn hình đăng nhập.
+- signup_screen.dart: Màn hình đăng ký.
+- welcome.dart: Màn hình chào mừng và điều hướng đến các màn hình khác.
+- home_page.dart: Màn hình chính hiển thị danh sách công việc và các chức năng quản lý.
+- edit_task_screen.dart: Màn hình để sửa tên công việc.
+- util: Chứa các widget và hàm tiện ích.
+- dialog_box.dart: Widget hiển thị hộp thoại cho việc thêm công việc mới.
+- my_button.dart: Widget nút được sử dụng trong các hộp thoại.
+- todo_tile.dart: Widget hiển thị một công việc trong danh sách.
+- main.dart: Nơi chính để khởi tạo ứng dụng và xác định các màn hình cơ bản.
+- screenshots: Chứa ảnh màn hình của ứng dụng.
+-firebase_options.dart: Định nghĩa các tùy chọn Firebase cho từng nền tảng.
+-firebase_options.g.dart: Tệp được tạo ra bởi build_runner để chứa tùy chọn Firebase.
+
 # Các thư viện sử dụng:
 - flutter_slidable: Chức năng Cung cấp các widget giúp tạo ra các thành phần có thể trượt để mở các tùy chọn khác nhau. Trong ToDoFlutter, nó được sử dụng để tạo các hành động trượt cho từng mục công việc trong danh sách.
 - hive: Chức năng Hive là một thư viện cơ sở dữ liệu NoSQL dựa trên key-value, linh hoạt và hiệu suất cao. Trong ToDoFlutter, Hive được sử dụng để lưu trữ các công việc (tasks) dưới dạng danh sách key-value, giúp giữ cho dữ liệu địa phương.
@@ -18,6 +38,21 @@ Trước khi bắt đầu, hãy đảm bảo bạn đã cài đặt các phần 
 - firebase_core: Chức năng Firebase Core là thư viện cơ bản để khởi tạo và cấu hình Firebase trong ứng dụng Flutter. Trong ToDoFlutter, được sử dụng để khởi tạo Firebase.
 - cloud_firestore: Chức năng Firebase Cloud Firestore là một cơ sở dữ liệu NoSQL thời gian thực của Firebase. Trong ToDoFlutter, được sử dụng để lưu trữ và đồng bộ dữ liệu công việc giữa các thiết bị.
 - hive_generator và build_runner: Chức năng Hive Generator và Build Runner là các công cụ hỗ trợ cho việc tạo mã và tạo mã chạy (code generation) cho Hive. Được sử dụng trong ToDoFlutter để tạo mã chạy khi mô hình Hive thay đổi.
+
+# Các bước quan trọng:
+- Xác Thực Người Dùng: Sử dụng Firebase Auth để đăng nhập và đăng ký người dùng.
+- Lưu Trữ Dữ Liệu: Sử dụng Hive để lưu trữ danh sách công việc cục bộ và sử dụng Cloud Firestore để lưu trữ trên đám mây.
+- Cập Nhật Giao Diện Người Dùng: Sử dụng StreamBuilder để theo dõi thay đổi trong danh sách công việc và cập nhật giao diện người dùng một cách tự động.
+- Sửa Tên Công Việc: Cho phép người dùng sửa tên công việc và đồng bộ ngay lập tức với Cloud Firestore.
+- Xóa Công Việc: Cho phép người dùng xóa công việc và đồng bộ ngay lập tức với Cloud Firestore.
+
+# Người khác có thể mở rộng:
+- Thêm Ưu Đãi Khác: Mở rộng ứng dụng bằng cách thêm các tính năng như ưu đãi, hạn chế thời gian, hoặc độ ưu tiên công việc.
+- Nhóm Công Việc: Cho phép người dùng nhóm công việc theo danh mục hoặc ưu tiên.
+- Nhắc Nhở: Thêm tính năng nhắc nhở cho các công việc sắp tới.
+- Chia Sẻ Công Việc: Cho phép người dùng chia sẻ công việc với người khác.
+- Thiết Lập Ưu Tiên: Cho phép người dùng đặt ưu tiên cho công việc quan trọng.
+- Tích Hợp Nhiều Người Dùng: Thêm tính năng để nhiều người dùng có thể sử dụng ứng dụng trên cùng một danh sách công việc.
 
 # Cách cài đặt và chạy ứng dụng:
 
