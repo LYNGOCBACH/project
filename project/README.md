@@ -1,5 +1,10 @@
 # TO DO APP ❤️ Made with Flutter
 Cách đăng nhập vào APP: SignUp -> Login.
+Cách cài đặt và chạy ứng dụng:
+B1: Mở visual studio code
+B2: clone code về
+B3: Chạy terminal "flutter run --no-sound-null-safety"
+B4: Chạy code trên web
 
 
 ![image](https://github.com/LYNGOCBACH/project/assets/125987097/29592b80-97c1-4f24-a75d-64f920a49b89)
